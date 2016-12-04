@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BB74F5BC1DF3996600911711 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB74F5BB1DF3996600911711 /* Photo.swift */; };
+		BB74F5BE1DF3A68E00911711 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB74F5BD1DF3A68E00911711 /* PhotoCollectionViewCell.swift */; };
 		BB7538BC1DF0B690009C0B98 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB7538BA1DF0B646009C0B98 /* SwiftyJSON.framework */; };
 		BB7538BD1DF0B690009C0B98 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BB7538BA1DF0B646009C0B98 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BB8426061DEE6ED400059003 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8426051DEE6ED400059003 /* AppDelegate.swift */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		BB74F5BB1DF3996600911711 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		BB74F5BD1DF3A68E00911711 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB7538BA1DF0B646009C0B98 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		BB8426021DEE6ED400059003 /* ImageUploader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageUploader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB8426051DEE6ED400059003 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				BBE810981DF375E30008731C /* ImageUploaderAPI.swift */,
 				BBE8109C1DF376D00008731C /* PhotosIndexViewController.swift */,
 				BB84260B1DEE6ED400059003 /* Main.storyboard */,
+				BB74F5BD1DF3A68E00911711 /* PhotoCollectionViewCell.swift */,
 				BB74F5BB1DF3996600911711 /* Photo.swift */,
 				BB84260E1DEE6ED400059003 /* Assets.xcassets */,
 				BB8426101DEE6ED400059003 /* LaunchScreen.storyboard */,
@@ -299,6 +302,7 @@
 				BBE8109D1DF376D00008731C /* PhotosIndexViewController.swift in Sources */,
 				BBE810991DF375E30008731C /* ImageUploaderAPI.swift in Sources */,
 				BB74F5BC1DF3996600911711 /* Photo.swift in Sources */,
+				BB74F5BE1DF3A68E00911711 /* PhotoCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

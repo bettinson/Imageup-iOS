@@ -10,15 +10,17 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class PhotosIndexViewController : UIViewController {
+class PhotosIndexViewController : UIViewController, UICollectionViewDelegate {
     var store : PhotoStore!
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = store
+
         setup()
-        collectionView.dataSource = store
     }
     
     func setup() {
@@ -43,12 +45,24 @@ class PhotosIndexViewController : UIViewController {
             }
             self.collectionView.reloadData()
         }
+    }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        downloadImageFor(indexPath: indexPath)
+        let identifier = "UICollectionViewCell"
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! PhotoCollectionViewCell
+        let url = ImageUploaderAPI.urlForPhotoPath(photoTitle: self.store.photos[indexPath.row].remoteURL)
         
-//        Alamofire.request("http://104.131.50.247/i/" + data[0]["path"].string!, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: [:])
-//            .responseJSON { response in
-//                let image = UIImage(data: response.data!)
-//                self.imageView.image = image
-//        }
+        Alamofire.download(url).responseData { response in
+            if let data = response.result.value {
+                let image = UIImage(data: data)
+                cell.updateWithImage(image: image)
+                print("Downloaded: " + url.absoluteString)
+            }
+        }
+    }
+    
+    func downloadImageFor(indexPath : IndexPath) {
+        
     }
 }

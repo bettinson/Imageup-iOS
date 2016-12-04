@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Photo {
     let title: String
@@ -14,6 +15,7 @@ class Photo {
     let remoteThumbnailURL: String?
     let photoID: Int
     let dateTaken: Date
+    var image : UIImage?
     
     init(title: String, photoID: Int,  remoteURL: String, dateTaken: Date) {
         self.title = title
@@ -21,5 +23,6 @@ class Photo {
         self.remoteThumbnailURL = "thumbnail-" + remoteURL
         self.remoteURL = remoteURL
         self.dateTaken = dateTaken
+//        self.image = nil
     }
 }
