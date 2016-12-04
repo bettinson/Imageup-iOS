@@ -43,26 +43,18 @@ class PhotosIndexViewController : UIViewController, UICollectionViewDelegate {
                     }
                 }
             }
-            self.collectionView.reloadData()
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        downloadImageFor(indexPath: indexPath)
-        let identifier = "UICollectionViewCell"
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! PhotoCollectionViewCell
-        let url = ImageUploaderAPI.urlForPhotoPath(photoTitle: self.store.photos[indexPath.row].remoteURL)
-        
-        Alamofire.download(url).responseData { response in
-            if let data = response.result.value {
-                let image = UIImage(data: data)
-                cell.updateWithImage(image: image)
-                print("Downloaded: " + url.absoluteString)
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
             }
         }
     }
     
-    func downloadImageFor(indexPath : IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        downloadImageFor(indexPath: indexPath)
+        let identifier = "UICollectionViewCell"
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! PhotoCollectionViewCell
+        let photo = store.photos[indexPath.row]
         
+        cell.imageView.image = photo.image
     }
 }

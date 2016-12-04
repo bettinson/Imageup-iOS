@@ -10,14 +10,13 @@ import UIKit
 
 class PhotoCollectionViewCell: UICollectionViewCell {
     @IBOutlet var imageView: UIImageView!
-    @IBOutlet var spinner: UIActivityIndicatorView!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     func updateWithImage(image: UIImage?) {
         if let imageToDisplay = image {
-            spinner.stopAnimating()
             imageView.image = imageToDisplay
         } else {
-            spinner.startAnimating()
             imageView.image = nil
         }
     }
@@ -27,6 +26,14 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         updateWithImage(image: nil)
     }
     
+    // Depracated.
+//    func updateProgress(progress : Double) {
+//        if (progress == 1) {
+//            progressView.isHidden = true
+//        }
+//        progressView.progress = Float(progress)
+//    }
+//    
     override func prepareForReuse() {
         super.prepareForReuse()
         updateWithImage(image: nil)
