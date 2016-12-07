@@ -23,8 +23,8 @@ class PhotosIndexViewController : UIViewController, UICollectionViewDelegate {
         setup()
     }
     
+    // Grabs the JSON data from the index page
     func setup() {
-        // Get recent photos
         Alamofire.request(ImageUploaderAPI.recentPhotosUrl(), method: .get, parameters: nil, encoding: JSONEncoding.default, headers: [:]).responseJSON { response in
             let responseJSON = JSON(response.result.value ?? JSON.null)
             if (responseJSON != JSON.null) {
